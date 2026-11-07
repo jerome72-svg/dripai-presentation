@@ -5,6 +5,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -455,6 +456,18 @@ body:before {
   min-height: 330px;
   position: relative;
   background: linear-gradient(135deg,#17251b,#0b100d);
+}
+
+.package-hero-image--package-c:after {
+  background: linear-gradient(
+    90deg,
+    rgba(17,26,20,.18),
+    transparent 22%
+  );
+}
+
+.package-hero-image--package-c img {
+  opacity: 1;
 }
 
 .package-hero-image img {

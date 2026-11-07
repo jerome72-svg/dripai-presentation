@@ -242,7 +242,7 @@ function showRecommendation(selectedPackage) {
         </div>
 
 
-        <div class="package-hero-image">
+        <div class="package-hero-image ${selectedPackage === "none" ? "package-hero-image--package-c" : ""}">
 
           <img
             src="${pkg.image}"
