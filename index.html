@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d0b">
+  <meta name="description" content="A tailored AI sales system for your dealership, presented by DripAI.">
+  <title>DripAI | Your Dealership's AI Sales System</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-mark">D</span>
+      <span>drip<span class="green">ai</span></span>
+    </a>
+    <span class="topbar-note">DEALERSHIP DIGITAL SYSTEMS</span>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="pulse"></span>
+          A SMARTER WAY TO SELL
+        </div>
+
+        <h1>
+          Your dealership deserves a
+          <span class="green">better way</span>
+          to turn interest into enquiries.
+        </h1>
+
+        <p class="hero-lead">
+          A tailored digital experience that helps answer buyer questions,
+          capture serious enquiries and keep your sales team connected
+          to every opportunity.
+        </p>
+
+        <a class="text-link" href="#assessment">
+          Find your recommended solution <span>↓</span>
+        </a>
+      </div>
+
+      <div class="hero-visual">
+        <img
+          src="assets/hero-showroom.webp"
+          alt="Premium modern car dealership showroom"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"
+        >
+
+        <div class="image-fallback">
+          <span>DRIPAI</span>
+          <small>YOUR DIGITAL SALES EXPERIENCE</small>
+        </div>
+
+        <div class="visual-caption">
+          <span class="caption-dot"></span>
+          BUILT AROUND YOUR DEALERSHIP
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK BENEFITS -->
+    <section class="trust-strip">
+      <div><strong>01</strong><span>Answer buyer questions</span></div>
+      <div><strong>02</strong><span>Capture enquiries</span></div>
+      <div><strong>03</strong><span>Keep leads organised</span></div>
+      <div><strong>04</strong><span>Support your sales team</span></div>
+    </section>
+
+    <!-- QUESTIONNAIRE -->
+    <section class="assessment section-shell" id="assessment">
+
+      <div class="section-heading">
+        <div class="eyebrow">LET'S START WITH YOUR DEALERSHIP</div>
+
+        <h2>First, a quick question.</h2>
+
+        <p>
+          Your answer helps us identify the DripAI solution
+          that best fits your current website situation.
+        </p>
+      </div>
+
+      <div class="question-card">
+
+        <div class="question-progress">
+          <span>YOUR WEBSITE SITUATION</span>
+          <div class="progress-track">
+            <span></span>
+          </div>
+        </div>
+
+        <h3>Does your dealership currently have a website?</h3>
+
+        <p class="question-hint">
+          Choose the option that best describes your current situation.
+        </p>
+
+        <div class="choice-list">
+
+          <button class="choice" data-answer="none">
+            <span class="choice-icon">＋</span>
+            <span>
+              <b>No, we don't have a website yet.</b>
+              <small>We need a complete website and sales system.</small>
+            </span>
+            <span class="choice-arrow">↗</span>
+          </button>
+
+          <button class="choice" data-answer="upgrade">
+            <span class="choice-icon">⌘</span>
+            <span>
+              <b>Yes, but it needs an upgrade.</b>
+              <small>Our current website needs a better experience.</small>
+            </span>
+            <span class="choice-arrow">↗</span>
+          </button>
+
+          <button class="choice" data-answer="happy">
+            <span class="choice-icon">✓</span>
+            <span>
+              <b>Yes, and we're happy with it.</b>
+              <small>We want to add an AI sales assistant.</small>
+            </span>
+            <span class="choice-arrow">↗</span>
+          </button>
+
+        </div>
+      </div>
+
+      <p class="privacy-note">
+        🔒 Your answers are used only to tailor this presentation.
+      </p>
+
+    </section>
+
+    <!-- RECOMMENDED PACKAGE -->
+    <section id="recommendation" class="recommendation section-shell hidden">
+
+      <div class="recommendation-intro">
+        <div class="eyebrow">
+          <span class="pulse"></span>
+          YOUR DRIPAI RECOMMENDATION
+        </div>
+
+        <h2>We've identified the right solution for your dealership.</h2>
+
+        <p>
+          Based on your answer, we've selected a DripAI solution
+          that best matches your dealership's current website
+          situation and business needs.
+        </p>
+      </div>
+
+      <div id="package-content"></div>
+
+    </section>
+
+    <!-- SHARED SYSTEM -->
+    <section id="shared-system" class="shared-system section-shell hidden">
+
+      <div class="section-heading">
+        <div class="eyebrow">THE SYSTEM BEHIND YOUR SOLUTION</div>
+
+        <h2>Designed to support the full enquiry journey.</h2>
+
+        <p>
+          Your DripAI system connects the buyer's questions
+          with the people who can help them take the next step.
+        </p>
+      </div>
+
+      <div class="system-grid">
+
+        <article class="system-card">
+          <span class="system-number">01</span>
+          <div class="system-icon">✳</div>
+          <h3>AI buyer assistance</h3>
+          <p>
+            Answers dealership and vehicle questions using
+            information published on your website.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <span class="system-number">02</span>
+          <div class="system-icon">◎</div>
+          <h3>Lead capture</h3>
+          <p>
+            Collects a visitor's name, email, phone number
+            and the vehicle or service they're interested in.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <span class="system-number">03</span>
+          <div class="system-icon">▤</div>
+          <h3>Organised CRM</h3>
+          <p>
+            Stores enquiries in a central lead-management
+            system so your team can keep track of them.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <span class="system-number">04</span>
+          <div class="system-icon">↗</div>
+          <h3>Team notifications</h3>
+          <p>
+            Notifies your sales team by email when a new
+            enquiry is captured.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <span class="system-number">05</span>
+          <div class="system-icon">◷</div>
+          <h3>Follow-up support</h3>
+          <p>
+            Supports agreed email follow-up workflows
+            and appointment requests.
+          </p>
+        </article>
+
+        <article class="system-card">
+          <span class="system-number">06</span>
+          <div class="system-icon">⌁</div>
+          <h3>Ongoing management</h3>
+          <p>
+            We monitor and maintain the agreed system
+            while your monthly management service is active.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="system-image">
+        <img
+          src="assets/workflow-sales-team.webp"
+          alt="Dealership sales team reviewing enquiries"
+        >
+      </div>
+
+    </section>
+
+    <!-- DELIVERY -->
+    <section id="delivery" class="delivery section-shell hidden">
+
+      <div class="section-heading">
+        <div class="eyebrow">FROM APPROVAL TO LAUNCH</div>
+        <h2>A clear, managed delivery process.</h2>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <span>01</span>
+          <h3>Approve & get started</h3>
+          <p>
+            You confirm the selected solution and receive
+            an invoice for the initial 60% deposit.
+          </p>
+        </div>
+
+        <div class="step">
+          <span>02</span>
+          <h3>Provide the essentials</h3>
+          <p>
+            We collect your dealership details, branding,
+            website access where needed, and approved content.
+          </p>
+        </div>
+
+        <div class="step">
+          <span>03</span>
+          <h3>Build & review</h3>
+          <p>
+            We develop the agreed solution, test its key
+            functions and share it for your review.
+          </p>
+        </div>
+
+        <div class="step">
+          <span>04</span>
+          <h3>Approve & activate</h3>
+          <p>
+            After testing and your approval, the remaining
+            40% is paid and the system is activated.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="billing-note">
+        Your monthly management billing begins only after delivery,
+        testing, your approval and activation — not during development.
+      </p>
+
+    </section>
+
+    <!-- MONTHLY MANAGEMENT -->
+    <section id="management" class="management section-shell hidden">
+
+      <div class="management-copy">
+        <div class="eyebrow">ONGOING MANAGEMENT</div>
+
+        <h2>
+          More than a launch.
+          <span class="green">A managed system.</span>
+        </h2>
+
+        <p>
+          Your monthly service keeps the agreed website and
+          AI sales system maintained after launch.
+        </p>
+      </div>
+
+      <div class="management-list">
+
+        <div><span>✓</span> AI assistant operation and maintenance</div>
+        <div><span>✓</span> CRM and lead-management support</div>
+        <div><span>✓</span> Hosting and platform services, as applicable</div>
+        <div><span>✓</span> Monitoring and troubleshooting</div>
+        <div><span>✓</span> Maintenance of existing agreed automations</div>
+        <div><span>✓</span> Basic website revisions</div>
+        <div><span>✓</span> Up to 1,000 AI responses per month, subject to the configured service allowance</div>
+
+        <p class="small-print">
+          Additional AI usage, domain registration or renewal,
+          separately paid third-party services, and custom features
+          or integrations are not automatically included. We will
+          explain and obtain your approval before any additional
+          charge is incurred.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- TERMS -->
+    <section id="terms" class="terms section-shell hidden">
+
+      <div class="section-heading">
+        <div class="eyebrow">IMPORTANT PROJECT DETAILS</div>
+        <h2>Clear expectations from day one.</h2>
+      </div>
+
+      <div class="terms-grid">
+
+        <article>
+          <h3>Scope & revisions</h3>
+          <p>
+            There is no arbitrary page limit within the agreed
+            project scope. Reasonable revisions are included
+            during development so the agreed deliverables meet
+            the requirements. A full custom portal, unrelated
+            software, major redesigns or substantial new
+            functionality are outside the agreed scope and
+            will be quoted separately for approval.
+          </p>
+        </article>
+
+        <article>
+          <h3>Vehicle information</h3>
+          <p>
+            Vehicle listings use dealership-supplied photos and
+            details, plus information published on your website.
+            Live external inventory synchronisation is not included.
+            The AI assistant is configured not to invent vehicle
+            prices, specifications or availability. When it cannot
+            answer reliably, it can collect the visitor's details
+            for your team.
+          </p>
+        </article>
+
+        <article>
+          <h3>Ownership & platform</h3>
+          <p>
+            Your dealership retains ownership of its business
+            assets, domain, branding and supplied content.
+            DripAI provides the managed platform service while
+            the subscription is active. If service is cancelled,
+            hosted services may end; reasonable notice and
+            handover or migration arrangements will be discussed.
+          </p>
+        </article>
+
+        <article>
+          <h3>Support & response</h3>
+          <p>
+            Support is provided by email, with a target response
+            time of one business day. This is not a 24/7 human
+            support service.
+          </p>
+        </article>
+
+        <article>
+          <h3>AI accuracy</h3>
+          <p>
+            The assistant uses the approved information available
+            to it and is designed to hand uncertain enquiries
+            to your team. It does not guarantee sales,
+            conversions or revenue outcomes.
+          </p>
+        </article>
+
+        <article>
+          <h3>Third-party services</h3>
+          <p>
+            Some services may depend on third-party platforms.
+            Any separately chargeable service or additional cost
+            will be disclosed and approved before it is incurred.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- FINAL EMAIL CONFIRMATION -->
+    <section id="confirmation" class="confirmation section-shell hidden">
+
+      <div class="confirmation-card">
+
+        <div class="eyebrow">
+          <span class="pulse"></span>
+          READY FOR THE NEXT STEP?
+        </div>
+
+        <h2>Let's put your selected solution into action.</h2>
+
+        <p>
+          If you're happy with the proposed solution and ready
+          to move forward, copy the message below and reply
+          to the original email conversation you received from DripAI.
+        </p>
+
+        <div class="email-preview">
+
+          <div class="email-preview-top">
+            <span>YOUR EMAIL REPLY</span>
+            <span class="secure-label">PACKAGE CONFIRMATION</span>
+          </div>
+
+          <p id="confirmation-message"></p>
+
+          <button id="copy-button" class="copy-button">
+            ▢ &nbsp; Copy message
+          </button>
+
+          <span id="copy-feedback" class="copy-feedback"></span>
+
+        </div>
+
+        <p class="confirmation-footnote">
+          Once we receive your reply, we'll confirm the details
+          and send your invoice for the 60% initial deposit.
+          Your project begins after the deposit and required
+          project information have been received.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+
+    <a class="brand" href="#">
+      <span class="brand-mark">D</span>
+      <span>drip<span class="green">ai</span></span>
+    </a>
+
+    <span>DEALERSHIP DIGITAL SYSTEMS</span>
+
+    <small>
+      © <span id="year"></span> DripAI. All rights reserved.
+    </small>
+
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
