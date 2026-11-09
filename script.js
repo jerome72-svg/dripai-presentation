@@ -1,3 +1,7 @@
+// ==========================================
+// DRIPAI PRESENTATION — COMPLETE SCRIPT
+// ==========================================
+
 const packages = {
   happy: {
     name: "AI Sales Assistant Integration",
@@ -10,8 +14,11 @@ const packages = {
     deposit: "$750",
     balance: "$500",
     timeline: "7–10 business days",
+
     fit: "This solution is designed for a dealership that already has a website it is happy with and wants to strengthen the way it handles online buyer enquiries.",
+
     scope: "We integrate the DripAI sales assistant into your existing website, configure its approved knowledge sources, connect lead capture and CRM, and set up the agreed email notifications and follow-up workflows.",
+
     features: [
       ["AI website assistant", "Responds to dealership and vehicle questions using your published website information."],
       ["Lead capture", "Collects visitor contact details and the vehicle or service they are interested in."],
@@ -19,7 +26,9 @@ const packages = {
       ["Sales team alerts", "Sends email notifications when a new enquiry is captured."],
       ["Follow-up workflows", "Supports agreed email follow-ups and appointment requests."],
       ["Managed operation", "Ongoing monitoring, maintenance and basic revisions."]
-    ]
+    ],
+
+    message: "I'm ready to proceed with the DripAI AI Sales Assistant Integration. Please send me the invoice for the initial deposit."
   },
 
   upgrade: {
@@ -33,8 +42,11 @@ const packages = {
     deposit: "$1,050",
     balance: "$700",
     timeline: "14–21 business days",
+
     fit: "This solution is designed for a dealership that already has a website but feels its current presentation or enquiry experience needs improvement.",
+
     scope: "We refresh the agreed website experience, organise the key dealership and vehicle information, and integrate the DripAI sales assistant, lead capture, CRM, sales notifications and agreed follow-up workflows.",
+
     features: [
       ["Website experience upgrade", "A more polished, responsive presentation for your dealership and its inventory."],
       ["AI website assistant", "Answers questions using approved information published on your website."],
@@ -42,7 +54,9 @@ const packages = {
       ["CRM connection", "Organises incoming enquiries for your sales team."],
       ["Sales team alerts", "Notifies your team by email when a lead is captured."],
       ["Follow-up workflows", "Supports agreed email follow-ups and appointment requests."]
-    ]
+    ],
+
+    message: "I'm ready to proceed with the DripAI Website Upgrade + AI Sales System. Please send me the invoice for the initial deposit."
   },
 
   none: {
@@ -56,8 +70,11 @@ const packages = {
     deposit: "$1,350",
     balance: "$900",
     timeline: "21–30 business days",
+
     fit: "This solution is designed for a dealership that does not currently have a website and needs a complete online presence connected to a modern enquiry and sales-support system.",
+
     scope: "We build the agreed dealership website, organise your supplied business and vehicle information, integrate the DripAI sales assistant, and connect lead capture, CRM, sales notifications and agreed follow-up workflows.",
+
     features: [
       ["Complete dealership website", "A responsive website presenting your dealership, services and supplied vehicle listings."],
       ["AI website assistant", "Answers questions using approved dealership and vehicle information."],
@@ -65,61 +82,90 @@ const packages = {
       ["CRM connection", "Stores and organises enquiries for your sales team."],
       ["Sales team alerts", "Notifies your team by email when a new lead is captured."],
       ["Follow-up workflows", "Supports agreed email follow-ups and appointment requests."]
-    ]
+    ],
+
+    message: "I'm ready to proceed with the DripAI Complete AI Dealership Website & Sales System. Please send me the invoice for the initial deposit."
   }
 };
 
 
-// ----------------------------------------
-// PAGE ELEMENTS
-// ----------------------------------------
+// ==========================================
+// ELEMENT REFERENCES
+// ==========================================
 
 const recommendation = document.getElementById("recommendation");
 const packageContent = document.getElementById("package-content");
 
-const sharedSections = [
+const sharedSectionIds = [
   "shared-system",
   "delivery",
   "management",
   "terms",
   "confirmation"
-].map(id => document.getElementById(id));
+];
 
 let selectedPackage = null;
-let currentPackage = null;
 
 
-// ----------------------------------------
-// FOOTER YEAR
-// ----------------------------------------
+// ==========================================
+// SAFE TEXT UPDATE FUNCTION
+// ==========================================
 
-document.getElementById("year").textContent = new Date().getFullYear();
+function updateText(id, value) {
+  const element = document.getElementById(id);
+
+  if (element) {
+    element.textContent = value;
+  }
+}
 
 
-// ----------------------------------------
-// PACKAGE SELECTION
-// ----------------------------------------
+// ==========================================
+// YEAR IN FOOTER
+// ==========================================
+
+updateText("year", new Date().getFullYear());
+
+
+// ==========================================
+// QUESTIONNAIRE BUTTONS
+// ==========================================
 
 document.querySelectorAll("[data-answer]").forEach(button => {
+
   button.addEventListener("click", () => {
-    selectedPackage = button.dataset.answer;
+
+    const answer = button.dataset.answer;
+
+    if (!packages[answer]) {
+      console.error("Unknown package selection:", answer);
+      return;
+    }
+
+    selectedPackage = answer;
+
     showRecommendation();
+
   });
+
 });
 
 
-// ----------------------------------------
+// ==========================================
 // DISPLAY RECOMMENDED PACKAGE
-// ----------------------------------------
+// ==========================================
 
 function showRecommendation() {
+
   const pkg = packages[selectedPackage];
 
-  if (!pkg) {
+  if (!pkg || !packageContent || !recommendation) {
+    console.error("Package display elements could not be found.");
     return;
   }
 
-  currentPackage = pkg;
+
+  // Generate package features
 
   const featureHtml = pkg.features.map(([title, desc]) => `
     <div class="feature">
@@ -131,42 +177,65 @@ function showRecommendation() {
     </div>
   `).join("");
 
+
+  // Generate package presentation
+
   packageContent.innerHTML = `
+
     <article class="package-card">
 
       <div class="package-hero">
 
         <div class="package-hero-copy">
-          <div class="package-kicker">${pkg.kicker}</div>
+
+          <div class="package-kicker">
+            ${pkg.kicker}
+          </div>
+
           <h2>${pkg.name}</h2>
+
           <p>${pkg.intro}</p>
+
         </div>
 
         <div class="package-hero-image">
+
           <img
             src="${pkg.image}"
             alt="${pkg.name}"
             onerror="this.style.display='none'"
           >
+
         </div>
 
       </div>
+
 
       <div class="package-body">
 
         <div class="package-summary">
 
           <div>
+
             <h3>Why this is the right fit</h3>
+
             <p>${pkg.fit}</p>
 
-            <h3 style="margin-top:25px">What we'll implement</h3>
+            <h3 style="margin-top:25px">
+              What we'll implement
+            </h3>
+
             <p>${pkg.scope}</p>
+
           </div>
+
 
           <aside class="price-panel">
 
-            <div class="price-label">ONE-TIME SETUP</div>
+            <div class="price-label">
+              ONE-TIME SETUP
+            </div>
+
             <div class="price-row">
               <strong>${pkg.setup}</strong>
               <span>Project setup</span>
@@ -174,7 +243,10 @@ function showRecommendation() {
 
             <div class="price-divider"></div>
 
-            <div class="price-label">MONTHLY MANAGEMENT</div>
+            <div class="price-label">
+              MONTHLY MANAGEMENT
+            </div>
+
             <div class="price-row">
               <strong>${pkg.monthly}</strong>
               <span>Per month</span>
@@ -182,14 +254,18 @@ function showRecommendation() {
 
             <div class="price-divider"></div>
 
-            <div class="price-label">PAYMENT BREAKDOWN</div>
-
-            <div class="deposit-line">
-              Initial 60% deposit: <b>${pkg.deposit}</b>
+            <div class="price-label">
+              PAYMENT BREAKDOWN
             </div>
 
             <div class="deposit-line">
-              Final 40% after approval: <b>${pkg.balance}</b>
+              Initial 60% deposit:
+              <b>${pkg.deposit}</b>
+            </div>
+
+            <div class="deposit-line">
+              Final 40% after approval:
+              <b>${pkg.balance}</b>
             </div>
 
             <p class="small-print">
@@ -201,144 +277,268 @@ function showRecommendation() {
 
         </div>
 
-        <div class="package-section">
-          <h3>What's included in your solution</h3>
-          <div class="feature-grid">${featureHtml}</div>
-        </div>
 
         <div class="package-section">
+
+          <h3>What's included in your solution</h3>
+
+          <div class="feature-grid">
+            ${featureHtml}
+          </div>
+
+        </div>
+
+
+        <div class="package-section">
+
           <h3>Estimated delivery</h3>
+
           <p>
             Estimated from the date we receive your initial
             deposit and all required project information.
           </p>
+
           <div class="timeline-pill">
             ◷ &nbsp; ${pkg.timeline}
           </div>
+
         </div>
 
+
         <div class="package-footer">
+
           <div>
             <strong>Built around your dealership.</strong>
+
             <p>
               A managed implementation with a clear review
               and approval process.
             </p>
           </div>
+
           <strong>DRIPAI / YOUR SALES SYSTEM</strong>
+
         </div>
 
       </div>
 
     </article>
+
   `;
 
 
-  // Update the invoice summary with the selected package.
+  // Update the invoice request summary
 
-  document.getElementById("invoice-package-name").textContent = pkg.name;
-  document.getElementById("invoice-setup").textContent = pkg.setup;
-  document.getElementById("invoice-monthly").textContent = pkg.monthly;
-  document.getElementById("invoice-deposit").textContent = pkg.deposit;
-  document.getElementById("invoice-balance").textContent = pkg.balance;
-  document.getElementById("invoice-timeline").textContent = pkg.timeline;
+  updateText("invoice-package-name", pkg.name);
+  updateText("invoice-setup", pkg.setup);
+  updateText("invoice-monthly", pkg.monthly);
+  updateText("invoice-deposit", pkg.deposit);
+  updateText("invoice-balance", pkg.balance);
+  updateText("invoice-timeline", pkg.timeline);
 
 
-  // Reveal the relevant sections.
+  // Update the original confirmation message if present
+
+  updateText("confirmation-message", pkg.message);
+  updateText("copy-feedback", "");
+
+
+  // Reveal the recommendation
 
   recommendation.classList.remove("hidden");
 
-  sharedSections.forEach(section => {
+
+  // Reveal shared sections
+
+  sharedSectionIds.forEach(id => {
+
+    const section = document.getElementById(id);
+
     if (section) {
       section.classList.remove("hidden");
     }
+
   });
 
 
-  // Scroll to the recommendation.
+  // Scroll to the recommendation
 
   setTimeout(() => {
+
     recommendation.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
+
   }, 80);
+
 }
 
 
-// ----------------------------------------
+// ==========================================
+// COPY CONFIRMATION MESSAGE
+// ==========================================
+
+const copyButton = document.getElementById("copy-button");
+
+if (copyButton) {
+
+  copyButton.addEventListener("click", async () => {
+
+    const messageElement = document.getElementById("confirmation-message");
+    const feedback = document.getElementById("copy-feedback");
+
+    if (!messageElement || !feedback) {
+      return;
+    }
+
+    const message = messageElement.textContent;
+
+    try {
+
+      await navigator.clipboard.writeText(message);
+
+      feedback.textContent =
+        "Copied — paste this into your email reply.";
+
+    } catch (error) {
+
+      const temporary = document.createElement("textarea");
+
+      temporary.value = message;
+      temporary.style.position = "fixed";
+      temporary.style.opacity = "0";
+
+      document.body.appendChild(temporary);
+
+      temporary.select();
+
+      const copied = document.execCommand("copy");
+
+      temporary.remove();
+
+      feedback.textContent = copied
+        ? "Copied — paste this into your email reply."
+        : "Please select and copy the message above.";
+
+    }
+
+  });
+
+}
+
+
+// ==========================================
 // INVOICE REQUEST FORM
-// ----------------------------------------
+// ==========================================
 
 const invoiceForm = document.getElementById("invoice-request-form");
 
-invoiceForm.addEventListener("submit", function(event) {
-  event.preventDefault();
+if (invoiceForm) {
 
-  if (!currentPackage) {
-    alert("Please select a package before requesting an invoice.");
-    return;
-  }
+  invoiceForm.addEventListener("submit", function(event) {
 
-  const customerName = document.getElementById("customer-name").value.trim();
-  const dealershipName = document.getElementById("dealership-name").value.trim();
-  const customerPhone = document.getElementById("customer-phone").value.trim();
-  const customerEmail = document.getElementById("customer-email").value.trim();
+    event.preventDefault();
 
-  if (!customerName || !dealershipName || !customerPhone || !customerEmail) {
-    alert("Please complete all the fields before continuing.");
-    return;
-  }
 
-  const pkg = currentPackage;
+    // A package must be selected first
 
-  const subject = `DripAI Invoice Request - ${dealershipName}`;
+    if (!selectedPackage || !packages[selectedPackage]) {
 
-  const emailBody = `
-Hello Jerome,
+      alert("Please complete the package selection first.");
 
-I would like to proceed with the following DripAI solution and request my Flutterwave invoice for the initial deposit.
+      return;
+
+    }
+
+
+    const pkg = packages[selectedPackage];
+
+
+    // Collect customer information
+
+    const customerName =
+      document.getElementById("customer-name")?.value.trim() || "";
+
+    const dealershipName =
+      document.getElementById("dealership-name")?.value.trim() || "";
+
+    const customerPhone =
+      document.getElementById("customer-phone")?.value.trim() || "";
+
+    const customerEmail =
+      document.getElementById("customer-email")?.value.trim() || "";
+
+
+    // Validate required information
+
+    if (
+      !customerName ||
+      !dealershipName ||
+      !customerPhone ||
+      !customerEmail
+    ) {
+
+      alert("Please complete all the required fields.");
+
+      return;
+
+    }
+
+
+    // Prepare the invoice request email
+
+    const subject = encodeURIComponent(
+      "DripAI Invoice Request - " + dealershipName
+    );
+
+
+    const body = encodeURIComponent(
+
+`Hello Jerome,
+
+I would like to request an invoice for the initial deposit for my selected DripAI package.
 
 CUSTOMER DETAILS
 
-Full name: ${customerName}
+Name: ${customerName}
 Dealership: ${dealershipName}
-Phone number: ${customerPhone}
-Email address: ${customerEmail}
+Phone: ${customerPhone}
+Email: ${customerEmail}
 
-SELECTED DRIPAI PACKAGE
+
+SELECTED PACKAGE
 
 Package: ${pkg.name}
-One-time setup fee: ${pkg.setup}
+One-time setup: ${pkg.setup}
 Monthly management: ${pkg.monthly}
 Initial 60% deposit: ${pkg.deposit}
-Remaining 40% balance: ${pkg.balance}
+Remaining 40% after approval: ${pkg.balance}
 Estimated delivery: ${pkg.timeline}
 
-PAYMENT TERMS
 
-I understand that the initial 60% deposit is required before work begins.
+Please send me the Flutterwave invoice for the initial deposit.
 
-The remaining 40% balance is payable after testing and my approval of the completed project.
+Thank you.`
 
-Monthly management billing begins only after delivery, approval and activation.
+    );
 
-Please send my Flutterwave invoice for the initial deposit so we can proceed.
 
-Thank you.
+    // Open the customer's email application
 
-${customerName}
-${dealershipName}
+    const recipient = "jeromedaniel0220@gmail.com";
 
-My invoice request will be personally handled by Jerome Daniel of DripAI.
-  `.trim();
+    const mailtoLink =
+      `mailto:${recipient}?subject=${subject}&body=${body}`;
 
-  const recipient = "jeromedaniel0220@gmail.com";
 
-  const mailtoLink =
-    `mailto:${recipient}` +
-    `?subject=${encodeURIComponent(subject)}` +
-    `&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = mailtoLink;
 
-  window.location.href = mailtoLink;
-});
+  });
+
+}
+
+
+// ==========================================
+// END OF DRIPAI SCRIPT
+// ==========================================
