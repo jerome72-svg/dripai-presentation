@@ -1,11 +1,9 @@
-
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  overflow-x: clip;
 }
 
 body {
@@ -458,18 +456,6 @@ body:before {
   background: linear-gradient(135deg,#17251b,#0b100d);
 }
 
-.package-hero-image--package-c:after {
-  background: linear-gradient(
-    90deg,
-    rgba(17,26,20,.18),
-    transparent 22%
-  );
-}
-
-.package-hero-image--package-c img {
-  opacity: 1;
-}
-
 .package-hero-image img {
   width: 100%;
   height: 100%;
@@ -810,7 +796,7 @@ body:before {
   margin: 0;
 }
 
-/* FINAL CONFIRMATION */
+/* INVOICE REQUEST */
 
 .confirmation {
   padding-top: 50px;
@@ -842,36 +828,209 @@ body:before {
   font-size: 13px;
 }
 
-.email-preview {
+/* SELECTED PACKAGE SUMMARY */
+
+.invoice-summary {
   text-align: left;
   margin: 32px auto 20px;
-  padding: 23px;
+  padding: 25px;
   border: 1px solid #314638;
   border-radius: 12px;
   background: #090f0b;
   max-width: 590px;
 }
 
-.email-preview-top {
+.invoice-summary-heading {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   color: #819087;
   font-size: 9px;
   letter-spacing: 1.5px;
   font-weight: 700;
 }
 
-.secure-label {
-  color: #54e69a;
+.invoice-summary h3 {
+  font: 700 21px Manrope;
+  color: #f1f6f2;
+  margin: 19px 0 23px;
 }
 
-.email-preview > p {
-  font-size: 14px;
-  color: #e4ece6;
-  line-height: 1.8;
-  margin: 22px 0;
+.invoice-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 13px 0;
+  font-size: 12px;
 }
+
+.invoice-summary-row span {
+  color: #9eaaa2;
+}
+
+.invoice-summary-row strong {
+  color: #e5eee7;
+  font-weight: 700;
+  text-align: right;
+}
+
+.invoice-summary-divider {
+  height: 1px;
+  background: #2a392f;
+  margin: 19px 0;
+}
+
+.invoice-summary-row.invoice-deposit-row strong {
+  color: #55e49a;
+  font: 800 23px Manrope;
+  letter-spacing: -.5px;
+}
+
+/* PAYMENT EXPLANATION */
+
+.invoice-payment-note {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 590px;
+  margin: 20px auto 32px;
+  padding: 19px;
+  border: 1px solid #2b4735;
+  border-radius: 11px;
+  background: #111b15;
+}
+
+.invoice-payment-icon {
+  flex: none;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #1b3525;
+  color: #55e49a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.invoice-payment-note strong {
+  display: block;
+  color: #dce9df;
+  font: 700 13px Manrope;
+  margin-bottom: 7px;
+}
+
+.invoice-payment-note p {
+  color: #9eaaa2;
+  font-size: 11px;
+  line-height: 1.75;
+  margin: 5px 0 0;
+}
+
+/* INVOICE FORM */
+
+.invoice-form {
+  max-width: 590px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 27px;
+  border: 1px solid #293b30;
+  border-radius: 12px;
+  background: #0c130e;
+}
+
+.invoice-form-heading {
+  margin-bottom: 24px;
+}
+
+.invoice-form-heading h3 {
+  font: 700 19px Manrope;
+  color: #f1f6f2;
+  margin: 0 0 7px;
+}
+
+.invoice-form-heading p {
+  color: #8e9b92;
+  font-size: 12px;
+  margin: 0;
+}
+
+.form-field {
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  display: block;
+  color: #c4d0c7;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-field input {
+  width: 100%;
+  min-height: 47px;
+  padding: 12px 14px;
+  border: 1px solid #2d3b32;
+  border-radius: 8px;
+  outline: none;
+  background: #101913;
+  color: #f1f6f2;
+  font: 13px "DM Sans", sans-serif;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+}
+
+.form-field input::placeholder {
+  color: #66746a;
+}
+
+.form-field input:focus {
+  border-color: #4cdb91;
+  background: #121e16;
+  box-shadow: 0 0 0 3px rgba(76,219,145,.08);
+}
+
+.invoice-form .copy-button {
+  width: 100%;
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+  font-size: 13px;
+}
+
+.invoice-form .copy-button span {
+  font-size: 18px;
+  transition: transform .2s;
+}
+
+.invoice-form .copy-button:hover span {
+  transform: translateX(4px);
+}
+
+.invoice-handling-note {
+  max-width: 590px;
+  margin: 23px auto 0 !important;
+  color: #b9c9bd !important;
+  font-size: 11px !important;
+  line-height: 1.8;
+}
+
+.confirmation-card .confirmation-footnote {
+  max-width: 590px;
+  margin: 18px auto 0;
+  font-size: 10px;
+  color: #7e8c82;
+  line-height: 1.7;
+}
+
+/* BUTTON BASE */
 
 .copy-button {
   border: 0;
@@ -887,18 +1046,6 @@ body:before {
 .copy-button:hover {
   background: #73edaa;
   transform: translateY(-1px);
-}
-
-.copy-feedback {
-  font-size: 11px;
-  color: #54e69a;
-  margin-left: 12px;
-}
-
-.confirmation-card .confirmation-footnote {
-  font-size: 10px;
-  color: #7e8c82;
-  line-height: 1.7;
 }
 
 /* FOOTER */
@@ -1089,11 +1236,37 @@ body:before {
     font-size: 33px;
   }
 
-  .email-preview {
-    padding: 17px;
+  .invoice-summary {
+    padding: 19px 16px;
   }
 
-  .email-preview-top {
+  .invoice-summary h3 {
+    font-size: 18px;
+  }
+
+  .invoice-summary-row {
+    font-size: 11px;
+    gap: 10px;
+  }
+
+  .invoice-summary-row.invoice-deposit-row strong {
+    font-size: 20px;
+  }
+
+  .invoice-payment-note {
+    padding: 15px;
+    gap: 11px;
+  }
+
+  .invoice-form {
+    padding: 20px 16px;
+  }
+
+  .invoice-form-heading h3 {
+    font-size: 17px;
+  }
+
+  .invoice-summary-heading {
     font-size: 8px;
   }
 
